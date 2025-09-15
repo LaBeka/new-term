@@ -1,5 +1,7 @@
 package org.example.taskOne.planets;
 
+import org.example.taskOne.enums.ActionEnum;
+
 public class Mars extends Planet{
 
   public Mars() {
@@ -12,7 +14,7 @@ public class Mars extends Planet{
   }
 
   @Override
-  public int getLifeAsResponseToAction() {
+  public int getLifeAsResponseToAction(ActionEnum action) {
     return 4;
   }
 

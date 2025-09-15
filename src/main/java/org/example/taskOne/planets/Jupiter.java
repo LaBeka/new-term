@@ -2,6 +2,7 @@ package org.example.taskOne.planets;
 
 import java.util.Random;
 import org.example.taskOne.Player;
+import org.example.taskOne.enums.ActionEnum;
 import org.example.taskOne.enums.RiskEnum;
 
 public class Jupiter extends Planet{
@@ -16,7 +17,7 @@ public class Jupiter extends Planet{
   }
 
   @Override
-  public int getLifeAsResponseToAction() {
+  public int getLifeAsResponseToAction(ActionEnum action) {
     return 3;
   }
 

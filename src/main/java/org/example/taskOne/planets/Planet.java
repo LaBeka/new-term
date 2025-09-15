@@ -2,6 +2,7 @@ package org.example.taskOne.planets;
 
 import java.util.Random;
 import org.example.taskOne.Player;
+import org.example.taskOne.enums.ActionEnum;
 import org.example.taskOne.enums.RiskEnum;
 import org.example.taskOne.actions.ActionStrategy;
 
@@ -32,20 +33,13 @@ public abstract class Planet {
 
 // OTHER WAY OF DOING IT: abstract int getDamage(RiskEnum risk);
 //  case 0: { risk = "There is " + RiskEnum.STORM.name; player.setLife(-this.getDamage(RiskEnum.STORM));} break;
-  public abstract int getLifeAsResponseToAction();
 
-  public int gainLifeAction(ActionStrategy action){
-    int g = 0;
-    switch (action.getType()){
-      case ESCAPE:  return this.getLifeAsResponseToAction();
-      case EXPLORE:  return this.getLifeAsResponseToAction();
-      case GATHER_RESOURCES: return this.getLifeAsResponseToAction();
+  public abstract int getLifeAsResponseToAction(ActionEnum action);
 
-      default: {
-        System.out.println("invalid life action gain");
-      } return 0;
-    }
-  }
+//  public int gainLifeAction(ActionStrategy action){
+//    return this.getLifeAsResponseToAction(action.getType());
+//  }
+
   public void takeRisk(Player player){
     Random random = new Random();
     int ch = (int) (random.nextInt(0,4));
