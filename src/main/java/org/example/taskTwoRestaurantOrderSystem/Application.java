@@ -1,6 +1,5 @@
 package org.example.taskTwoRestaurantOrderSystem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -10,11 +9,42 @@ public class Application {
   }
 
   private static void runPizzeria() {
-      Pizza pizza = new Pizza(PizzaType.MARGARITA.name(), 180, new Recipe(6, List.of(
-          new Ingredient("Dough", "1 kg", "baked"),
-          new Ingredient("Cheese", 1, "mozzarella"),
-          new Ingredient("Tomato", 2, "sliced"))
+      Pizza margarita = new Pizza(PizzaType.MARGARITA.name(), 180, new Recipe(6, List.of(
+          new Ingredient("Dough", 500, "baked"),
+          new Ingredient("Cheese", 200, "mozzarella"),
+          new Ingredient("Tomato", 2, "sliced"),
+          new Ingredient("Oregano", "a pinch of oregano", "dried"))
       ));
+
+      Pizza fungi = new Pizza(PizzaType.FUNGI.name(), 180, new Recipe(6, List.of(
+          new Ingredient("Dough", 500, "baked"),
+          new Ingredient("Cheese", 300, "mozzarella"),
+          new Ingredient("Mashrooms", 100, "sliced"),
+          new Ingredient("Basil", "bunch of leaves", "fresh"))
+
+      ));
+      Pizza vesuvio = new Pizza(PizzaType.FUNGI.name(), 180, new Recipe(6, List.of(
+          new Ingredient("Neapolitan dough", 500, "baked"),
+          new Ingredient("Ricotta", 300, "creamy"),
+          new Ingredient("Salami", 100, "savory"),
+          new Ingredient("Artichokes", 20, "tender"),
+          new Ingredient("Mushrooms", 100, "earthy"))
+
+      ));
+    Pizza napoli = new Pizza(PizzaType.FUNGI.name(), 180, new Recipe(6, List.of(
+        new Ingredient("wheat dough", 500, "baked"),
+        new Ingredient("mozzarella cheese", 300, "fresh"),
+        new Ingredient("extra virgin olive oil", 5, "italian"),
+        new Ingredient("Basil", "bunch of leaves", "fresh"))
+
+    ));
+    Pizza procshuttoCrudo = new Pizza(PizzaType.FUNGI.name(), 180, new Recipe(6, List.of(
+        new Ingredient("Dough", 500, "baked"),
+        new Ingredient("mozzarella cheese", 300, "fresh"),
+        new Ingredient("Tomato sauce", 100, "fresh"),
+        new Ingredient("Prosciutto D'Abruzzo", 80, "fresh"),
+        new Ingredient("Parmesan cheese", 100, "fresh"))
+    ));
   }
 
 

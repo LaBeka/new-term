@@ -4,7 +4,7 @@ public enum PizzaType {
   MARGARITA("Margarita"),
   FUNGI("Fungi"),
   VESUVIO("Vesuvio"),
-  NAPOLI("Napoli"),
+  NAPOLI("Napoletana"),
   PROCSHUTTO_CRUDO("Procshutto crudo");
 
   private final String name;

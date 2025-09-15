@@ -10,7 +10,6 @@ public class Pizza {
     this.name = name;
     this.price = price;
     this.recipe = recipe;
-    cook();
   }
   public String getName() {return name;}
 

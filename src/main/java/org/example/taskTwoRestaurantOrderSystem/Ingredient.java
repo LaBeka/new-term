@@ -3,7 +3,7 @@ package org.example.taskTwoRestaurantOrderSystem;
 public class Ingredient {
 
   private String name;
-  private String quantityKg;
+  private String quantityGr;
   private int quantity;
   private String description;
 
@@ -13,9 +13,9 @@ public class Ingredient {
     this.description = description;
   }
 
-  public Ingredient(String name, String quantityKg, String description) {
+  public Ingredient(String name, String quantityGr, String description) {
     this.name = name;
-    this.quantityKg = quantityKg;
+    this.quantityGr = quantityGr;
     this.description = description;
   }
 }
