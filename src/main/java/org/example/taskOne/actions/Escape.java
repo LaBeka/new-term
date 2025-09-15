@@ -17,7 +17,7 @@ public class Escape implements ActionStrategy{
 
     System.out.printf("%n" + player.getName() +
         " is going to escape " + planet.getName() +
-        ". As reward to escape planet " + player.getName() +
+        ". As reward to escape from " + player.getName() +
         " is gaining " + gainLife + "❤\uFE0F" +
         "%n");
     player.setLife(gainLife);
