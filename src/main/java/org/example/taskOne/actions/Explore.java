@@ -18,8 +18,8 @@ public class Explore implements ActionStrategy {
 
     System.out.printf("%n" + player.getName() +
         " is going to explore " + planet.getName() +
-        ". As reward to escape" + player.getName() +
-        " is gaining " + gainLife + " life" +
+        ". As reward to explore " + player.getName() +
+        " is gaining " + gainLife + "❤\uFE0F" +
         "!%n");
     player.setLife(gainLife);
 

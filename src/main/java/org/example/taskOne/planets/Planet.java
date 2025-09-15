@@ -46,8 +46,8 @@ public abstract class Planet {
     String risk = "";
     switch (ch){
       case 0: { risk = "There is " + RiskEnum.STORM.name + ". You lost " + (-this.getStormDamage()) + "☢\uFE0F life"; player.setLife(-this.getStormDamage());} break;
-      case 1: { risk = "There is " + RiskEnum.DANGEROUS_ALIENS.name + ". You lost " + (-this.getStormDamage()) + "☢\uFE0F life"; player.setLife(-this.getAlienDamage());}break;
-      case 2: { risk = "There is " + RiskEnum.lACK_OF_OXYGEN.name + ". You lost " + (-this.getStormDamage()) + "☢\uFE0F life"; player.setLife(-this.getOxygenDamage());}break;
+      case 1: { risk = "There is " + RiskEnum.DANGEROUS_ALIENS.name + ". You lost " + (-this.getAlienDamage()) + "☢\uFE0F life"; player.setLife(-this.getAlienDamage());}break;
+      case 2: { risk = "There is " + RiskEnum.lACK_OF_OXYGEN.name + ". You lost " + (-this.getOxygenDamage()) + "☢\uFE0F life"; player.setLife(-this.getOxygenDamage());}break;
       case 3: { risk = "You are lucky, you dodged your risk, no life lost"; } break;
       default: { risk = "invalid risk";}break;
     }

@@ -18,8 +18,8 @@ public class Gather_Resources  implements ActionStrategy{
     System.out.printf("%n" + player.getName() +
         " is going to gather resources in " +
         planet.getName() +
-        ". As reward to escape" + player.getName() +
-        " is gaining " + gainLife + " life" +
+        ". As reward to gather resources " + player.getName() +
+        " is gaining " + gainLife + "❤\uFE0F" +
         "%n");
 
     player.setLife(gainLife);

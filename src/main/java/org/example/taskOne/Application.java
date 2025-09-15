@@ -14,7 +14,7 @@ import org.example.taskOne.planets.Venus;
 public class Application {
   private static Scanner scan = new Scanner(System.in);
 
-  public static void init(){
+  public static void initPlanets(){
     Player player = new Player("Pelle");
     System.out.printf("Welcome to explore planets " + player.getName() + "!%n");
 
