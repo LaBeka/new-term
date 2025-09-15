@@ -1,0 +1,15 @@
+package org.example.taskTwoRestaurantOrderSystem;
+
+public enum PizzaType {
+  MARGARITA("Margarita"),
+  FUNGI("Fungi"),
+  VESUVIO("Vesuvio"),
+  NAPOLI("Napoli"),
+  PROCSHUTTO_CRUDO("Procshutto crudo");
+
+  private final String name;
+
+  PizzaType(String name) {
+    this.name = name;
+  }
+}
