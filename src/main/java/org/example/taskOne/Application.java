@@ -1,6 +1,5 @@
 package org.example.taskOne;
 
-import java.io.BufferedReader;
 import java.util.Scanner;
 import org.example.taskOne.actions.Escape;
 import org.example.taskOne.actions.Explore;

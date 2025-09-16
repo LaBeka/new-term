@@ -1,7 +1,11 @@
 package org.example.taskTwoRestaurantOrderSystem;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 public class Pizza {
+  @Getter
   private String name;
   private int price;
   private Recipe recipe;
@@ -11,7 +15,6 @@ public class Pizza {
     this.price = price;
     this.recipe = recipe;
   }
-  public String getName() {return name;}
 
 
 }

@@ -31,20 +31,20 @@ public class Application {
           new Ingredient("Mushrooms", 100, "earthy"))
 
       ));
-    Pizza napoli = new Pizza(PizzaType.FUNGI.name(), 180, new Recipe(6, List.of(
-        new Ingredient("wheat dough", 500, "baked"),
-        new Ingredient("mozzarella cheese", 300, "fresh"),
-        new Ingredient("extra virgin olive oil", 5, "italian"),
-        new Ingredient("Basil", "bunch of leaves", "fresh"))
+      Pizza napoli = new Pizza(PizzaType.FUNGI.name(), 180, new Recipe(6, List.of(
+          new Ingredient("wheat dough", 500, "baked"),
+          new Ingredient("mozzarella cheese", 300, "fresh"),
+          new Ingredient("extra virgin olive oil", 5, "italian"),
+          new Ingredient("Basil", "bunch of leaves", "fresh"))
 
-    ));
-    Pizza procshuttoCrudo = new Pizza(PizzaType.FUNGI.name(), 180, new Recipe(6, List.of(
-        new Ingredient("Dough", 500, "baked"),
-        new Ingredient("mozzarella cheese", 300, "fresh"),
-        new Ingredient("Tomato sauce", 100, "fresh"),
-        new Ingredient("Prosciutto D'Abruzzo", 80, "fresh"),
-        new Ingredient("Parmesan cheese", 100, "fresh"))
-    ));
+      ));
+      Pizza procshuttoCrudo = new Pizza(PizzaType.FUNGI.name(), 180, new Recipe(6, List.of(
+          new Ingredient("Dough", 500, "baked"),
+          new Ingredient("mozzarella cheese", 300, "fresh"),
+          new Ingredient("Tomato sauce", 100, "fresh"),
+          new Ingredient("Prosciutto D'Abruzzo", 80, "fresh"),
+          new Ingredient("Parmesan cheese", 100, "fresh"))
+      ));
   }
 
 
