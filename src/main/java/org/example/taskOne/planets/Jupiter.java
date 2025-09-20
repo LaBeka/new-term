@@ -1,9 +1,8 @@
 package org.example.taskOne.planets;
 
-import java.util.Random;
-import org.example.taskOne.Player;
+import java.util.ArrayList;
+import java.util.List;
 import org.example.taskOne.enums.ActionEnum;
-import org.example.taskOne.enums.RiskEnum;
 
 public class Jupiter extends Planet{
 
@@ -17,42 +16,44 @@ public class Jupiter extends Planet{
   }
 
   @Override
-  public int getLifeAsResponseToAction(ActionEnum action) {
-    return 3;
-  }
-
-  @Override
-  int getStormDamage() {
-    return 2;
-  }
-
-  @Override
-  int getAlienDamage() {
-    return 3;
-  }
-
-  @Override
-  protected int getOxygenDamage() {
-    return 4;
-  }
-
-  public void takeRisk(Player player){
-    Random random = new Random();
-    int ch = (int) (random.nextInt(0,4));
-    String risk = "";
-    switch (ch){
-      case 0: { risk = "There is " + RiskEnum.STORM.name; player.setLife(-1);} break;
-      case 1: { risk = "There is " + RiskEnum.DANGEROUS_ALIENS.name; player.setLife(-2);}break;
-      case 2: { risk = "There is " + RiskEnum.lACK_OF_OXYGEN.name; player.setLife(-3);}break;
-      case 3: { risk = "You are lucky, you dodged you the risk, no life lost!"; } break;
-      default: { risk = "invalid risk";}break;
+  public int gainLifeAsResponseToAction(ActionEnum action) {
+    switch (action){
+      case ESCAPE -> {
+        return 0;
+      }
+      case GATHER_RESOURCES -> {
+        return 1;
+      }
+      case EXPLORE -> {
+        return 2;
+      }
     }
-
-    printRisk(risk, player);
+    return 0;
   }
 
-  public void printRisk(String risk, Player player){
-    System.out.printf(risk + ". You lost some life. Your current life is " + player.getLife() + ".%n");
+  @Override
+  List<String> getStormDamage() {
+    return generateDamage(2);
   }
+
+  private List<String> generateDamage(int i) {
+    List<String> damages = new ArrayList<String>();
+    String jupiterCodeDamage = "\u2643";
+    for (int j = 0; j < i; j++) {
+      damages.add(jupiterCodeDamage);
+    }
+    return damages;
+  }
+
+  @Override
+  List<String>  getAlienDamage() {
+    return generateDamage(3);
+  }
+
+  @Override
+  List<String> getOxygenDamage() {
+    return generateDamage(4);
+  }
+
 
 }

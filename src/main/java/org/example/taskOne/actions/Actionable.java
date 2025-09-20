@@ -4,7 +4,7 @@ import org.example.taskOne.enums.ActionEnum;
 import org.example.taskOne.planets.Planet;
 import org.example.taskOne.Player;
 
-public interface ActionStrategy {
+public interface Actionable {
   ActionEnum getType();
 
   void doSomething(Player play, Planet planet);

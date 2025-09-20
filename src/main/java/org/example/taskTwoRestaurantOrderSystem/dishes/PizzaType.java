@@ -1,4 +1,4 @@
-package org.example.taskTwoRestaurantOrderSystem;
+package org.example.taskTwoRestaurantOrderSystem.dishes;
 
 public enum PizzaType {
   MARGARITA("Margarita"),

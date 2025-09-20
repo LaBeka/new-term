@@ -5,7 +5,7 @@ import org.example.taskOne.enums.ActionEnum;
 import org.example.taskOne.planets.Planet;
 import org.example.taskOne.Player;
 
-public class Explore implements ActionStrategy {
+public class Explore implements Actionable {
 
   @Override
   public ActionEnum getType() {
@@ -14,7 +14,7 @@ public class Explore implements ActionStrategy {
 
   @Override
   public void doSomething(Player player, Planet planet) {
-    int gainLife = planet.getLifeAsResponseToAction(this.getType());
+    int gainLife = planet.gainLifeAsResponseToAction(this.getType());
 
     System.out.printf("%n" + player.getName() +
         " is going to explore " + planet.getName() +

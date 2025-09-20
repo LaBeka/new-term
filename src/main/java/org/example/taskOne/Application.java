@@ -1,6 +1,7 @@
 package org.example.taskOne;
 
 import java.util.Scanner;
+import org.example.InputHandler;
 import org.example.taskOne.actions.Escape;
 import org.example.taskOne.actions.Explore;
 import org.example.taskOne.actions.Gather_Resources;
@@ -13,7 +14,12 @@ import org.example.taskOne.planets.Venus;
 public class Application {
   private static Scanner scan = new Scanner(System.in);
 
+  public static void ignore() {
+    System.out.println("*********");
+  }
+
   public static void initPlanets(){
+    //1. Initialize the player
     Player player = new Player("Pelle");
     System.out.printf("Welcome to explore planets " + player.getName() + "!%n");
 
@@ -22,87 +28,66 @@ public class Application {
   private static void run(Player player) {
     System.out.printf("You got " + player.getLife() + " life%n");
 
-    while(player.getLife() > 0) {
-      System.out.println("==================================Next round==================================");
-      System.out.printf("Choose one of the planets to go to%n"
-          + "Enter 1 to go to Venus%n"
-          + "Enter 2 to go to Mars%n"
-          + "Enter 3 to go to Jupiter%n"
-          + "Enter 4 to quit game%n");
+      while(true) {
+        System.out.println(
+            "==================================Next round==================================");
+        System.out.printf("Choose one of the planets to go to%n"
+            + "Enter 1 to go to Venus%n"
+            + "Enter 2 to go to Mars%n"
+            + "Enter 3 to go to Jupiter%n"
+            + "Enter 4 to quit game%n");
+        // 2. choose planet
+        int planetChoice = InputHandler.scanCheckIfInteger(1, 4);
 
-      int planetChoice = scanCheckIfInteger(1, 4);
-
-      switch (planetChoice) {
-        case 1:
-          Planet venus = new Venus();
-          doAction(player, venus);
-          break;
-        case 2:
-          Planet mars = new Mars();
-          doAction(player, mars);
-          break;
-        case 3:
-          Planet jupiter = new Jupiter();
-          doAction(player, jupiter);
-          break;
-        case 4:
-          System.out.printf("Chosen: Stop game%n");
-          System.exit(0);
-          break;
-        default:
-          System.out.printf("Invalid input. Try again%n");
-          break;
+        switch (planetChoice) {
+          case 1:
+//            Planet venus = new Venus();
+            visitPlanet(player, new Venus());
+            break;
+          case 2:
+            visitPlanet(player, new Mars());
+            break;
+          case 3:
+            visitPlanet(player, new Jupiter());
+            break;
+          case 4:
+            System.out.printf("Chosen: Stop game%n");
+            System.exit(0);
+            break;
+          default:
+            System.out.printf("Invalid input. Try again%n");
+            break;
+        }
       }
-      System.out.printf("You have " + player.getLife() + " left life%n");
-
-    }
   }
 
-  private static void doAction(Player player, Planet planet) {
+
+  private static void visitPlanet(Player player, Planet planet) {
     System.out.printf(planet.getLocation()+ "%n");
+
+    //Player gets risk randomly-is unique to all planets
     planet.takeRisk(player);
+
     System.out.printf("Choose an action, what do you want to do in " + planet.getName() + "%n"
         + "Enter 1 to " + ActionEnum.EXPLORE.action + "%n"
         + "Enter 2 to " + ActionEnum.GATHER_RESOURCES.action + "%n"
         + "Enter 3 to " + ActionEnum.ESCAPE.action + "%n");
 
-    int actionChoice =  scanCheckIfInteger(1,3);
+    int actionChoice = InputHandler.scanCheckIfInteger(1,3);
 
-    //STRATEGY PATTERN DESIGN
+    //3. do something in chosen planet - STRATEGY PATTERN DESIGN
     switch (actionChoice) {
       case 1:
-        player.doSomething(new Explore(), planet);
+        player.doSomethingInPlanet(new Explore(), planet);
         break;
       case 2:
-        player.doSomething(new Escape(), planet);
+        player.doSomethingInPlanet(new Gather_Resources(), planet);
         break;
       case 3:
-        player.doSomething(new Gather_Resources(), planet);
+        player.doSomethingInPlanet(new Escape(), planet);
         break;
       default:
         break;
     }
-  }
-
-  private static int scanCheckIfInteger(int min, int max){
-    String input = scan.nextLine();
-    int result = 10;
-    try {
-      input = input.replaceAll("\\D", "");
-      result = Integer.parseInt(input);
-      if (input.length() == 0) {
-        System.out.println("Invalid input. Try again");
-        scanCheckIfInteger(min, max);
-      } else if (result < min || result > max) {
-        System.out.println("Invalid input. Try again between the numbers: "
-            + min + " and " + max);
-        return scanCheckIfInteger(min, max);
-      }
-
-    } catch (Exception e){
-      System.out.println("Invalid input. Try again");
-      return scanCheckIfInteger(min, max);
-    }
-    return result;
   }
 }
