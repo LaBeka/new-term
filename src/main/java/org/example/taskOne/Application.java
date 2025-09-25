@@ -4,7 +4,7 @@ import java.util.Scanner;
 import org.example.InputHandler;
 import org.example.taskOne.actions.Escape;
 import org.example.taskOne.actions.Explore;
-import org.example.taskOne.actions.Gather_Resources;
+import org.example.taskOne.actions.GatherResources;
 import org.example.taskOne.enums.ActionEnum;
 import org.example.taskOne.planets.Jupiter;
 import org.example.taskOne.planets.Mars;
@@ -81,7 +81,7 @@ public class Application {
         player.doSomethingInPlanet(new Explore(), planet);
         break;
       case 2:
-        player.doSomethingInPlanet(new Gather_Resources(), planet);
+        player.doSomethingInPlanet(new GatherResources(), planet);
         break;
       case 3:
         player.doSomethingInPlanet(new Escape(), planet);
